@@ -14,11 +14,12 @@ class AdvertisingSerializer(serializers.ModelSerializer):
         fields = ('id', 'title')
 
 
-# class WhereComeSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = WhereCome
-#         fields = ('id', 'student', 'advertising', 'is_active', 'created_at')
+class WhereComeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WhereCome
+        fields = ('id', 'student', 'advertising', 'is_active', 'created_at')
 #
+
 
 class ProfessionSerializer(serializers.ModelSerializer):
     class Meta:

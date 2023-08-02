@@ -3,8 +3,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 
 from app.account.permissons import IsAdminUserForAccount, IsAuthenticated
-from .models import Course, Profession, Room, DayName, Advertising
-from .serializers import CourseSerializer, ProfessionSerializer, RoomSerializer, DaySerializer, AdvertisingSerializer
+from .models import Course, Profession, Room, DayName, Advertising, WhereCome
+from .serializers import CourseSerializer, ProfessionSerializer, RoomSerializer, DaySerializer, AdvertisingSerializer, \
+    WhereComeSerializer
 
 
 class CourseListAPIView(generics.ListAPIView):
@@ -107,10 +108,10 @@ class AdvertisingRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
 #         serializer.save()
 #
 #
-# class WhereComeRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
-#     queryset = WhereCome.objects.all()
-#     serializer_class = WhereComeSerializer
-#     permission_classes = (IsAdminUserForAccount,)
+class WhereComeRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+    queryset = WhereCome.objects.all()
+    serializer_class = WhereComeSerializer
+    permission_classes = (IsAdminUserForAccount,)
 
 
 class DayNameListAPIView(generics.ListAPIView):

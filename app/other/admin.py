@@ -20,6 +20,6 @@ admin.site.register(Profession, ProfessionAdmin)
 admin.site.register(Room)
 admin.site.register(DayName)
 admin.site.register(Advertising)
-admin.site.register(WhereCome)
+admin.site.register(WhereCome,)
 admin.site.register(Course, CourseAdmin)
 

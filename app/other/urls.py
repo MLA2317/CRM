@@ -29,7 +29,7 @@ urlpatterns = [
     path('advertising/add/', AdvertisingCreateAPIView.as_view()),
     path('advertising/<int:pk>/', AdvertisingRetrieveUpdateAPIView.as_view()),
 
-    # where come
+    # where comee
     # path('where-come/', WhereComeListAPIView.as_view()),
     # path('where-come/add/', WhereComeCreateAPIView.as_view()),
     # path('where-come/<int:pk>/', WhereComeRetrieveUpdateAPIView.as_view()),

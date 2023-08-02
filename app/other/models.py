@@ -13,7 +13,7 @@ class Course(models.Model):
 
     class Meta:
         verbose_name = "Kurslar"
-        verbose_name_plural = "1. Kurslar"
+        verbose_name_plural = "1.Kurslar"
 
     def __str__(self):
         return self.title
@@ -51,7 +51,7 @@ class Profession(models.Model):
 
     class Meta:
         verbose_name = "Yo'nalishlar"
-        verbose_name_plural = "3. Yo'nalishlar"
+        verbose_name_plural = "3.Yo'nalishlar"
 
     def __str__(self):
         return self.title
@@ -63,7 +63,7 @@ class Room(models.Model):
 
     class Meta:
         verbose_name = "Xonalar"
-        verbose_name_plural = "4. Xonalar"
+        verbose_name_plural = "4.Xonalar"
 
     def __str__(self):
         return self.title
@@ -75,7 +75,7 @@ class DayName(models.Model):
 
     class Meta:
         verbose_name = "Kunlar"
-        verbose_name_plural = "5. Kunlar"
+        verbose_name_plural = "5.Kunlar"
 
     def __str__(self):
         return self.title
