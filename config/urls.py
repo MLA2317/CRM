@@ -47,7 +47,7 @@ urlpatterns = [
     # local urls
     path('account/', include('app.account.urls')),
     path('teacher/', include('app.teacher.urls')),
-    # path('student/', include('app.student.urls')),
+    path('student/', include('app.student.urls')),
     # path('groups/', include('app.group.urls')),
     path('others/', include('app.other.urls')),
 
