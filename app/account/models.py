@@ -47,7 +47,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
         (0, 'Staff'),
         (1, 'Teacher'),
         (2, 'Student'),
-        (3, 'demo')
+        (3, 'demo'),
     )
 
     first_name = models.CharField(max_length=50, verbose_name='First name', null=True)

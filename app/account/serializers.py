@@ -69,7 +69,7 @@ class AccountAdminUpdateSerializer(serializers.ModelSerializer):
             'is_teacher', 'is_student', 'is_active')
 
 
-class AccountUpdateSerializer(serializers.ModelSerializer):
+class AccountsUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ('id', 'first_name', 'last_name', 'phone', 'birth_year', 'image_url', 'role', 'gender')
@@ -102,7 +102,7 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         return attrs
 
 
-class AccountSerializer(serializers.ModelSerializer):
+class AccountsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ("id", "first_name", "last_name", "phone")

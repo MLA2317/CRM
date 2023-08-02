@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from .permissons import IsOwnUserOrReadOnly, IsAdminUserForAccount
-from .serializers import RegisterSerializer, LoginSerializer, AccountUpdateSerializer, ChangePasswordSerializer
+from .serializers import RegisterSerializer, LoginSerializer, AccountsUpdateSerializer, ChangePasswordSerializer
 from .models import Account
 
 
@@ -34,7 +34,7 @@ class LoginView(generics.GenericAPIView):
 
 class AccountView(generics.GenericAPIView):
     permission_classes = (IsOwnUserOrReadOnly, IsAuthenticated)
-    serializer_class = AccountUpdateSerializer
+    serializer_class = AccountsUpdateSerializer
 
     def get(self, request, *args, **kwargs):
         user = request.user
@@ -45,7 +45,7 @@ class AccountView(generics.GenericAPIView):
 
 class AccountRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Account.objects.all()
-    serializer_class = AccountUpdateSerializer
+    serializer_class = AccountsUpdateSerializer
     permission_classes = (IsOwnUserOrReadOnly, IsAuthenticated, IsAdminUserForAccount)
 
     def get(self, request, *args, **kwargs):
@@ -66,7 +66,7 @@ class AccountRetrieveUpdateView(generics.RetrieveUpdateAPIView):
 
 
 class AccountAdminRetrieveUpdateView(generics.RetrieveUpdateAPIView):
-    serializer_class = AccountUpdateSerializer
+    serializer_class = AccountsUpdateSerializer
     queryset = Account.objects.all()
     permission_classes = (IsAdminUserForAccount, IsAdminUser)
 
@@ -89,7 +89,7 @@ class AccountAdminRetrieveUpdateView(generics.RetrieveUpdateAPIView):
 
 class AccountListApiView(generics.ListAPIView):
     queryset = Account.objects.filter(is_active=True).order_by('-id')
-    serializer_class = AccountUpdateSerializer
+    serializer_class = AccountsUpdateSerializer
     permission_classes = (IsAuthenticated, IsOwnUserOrReadOnly)
 
     def get(self, request, *args, **kwargs):
@@ -98,7 +98,7 @@ class AccountListApiView(generics.ListAPIView):
 
 class AccountDeleteListAPIView(generics.ListAPIView):  # for admin delete account
     queryset = Account.objects.filter(is_active=False).order_by('-id')
-    serializer_class = AccountUpdateSerializer
+    serializer_class = AccountsUpdateSerializer
     permission_classes = (IsAdminUserForAccount,)
 
     def get(self, request, *args, **kwargs):
@@ -107,7 +107,7 @@ class AccountDeleteListAPIView(generics.ListAPIView):  # for admin delete accoun
 
 class AccountDestroyView(generics.DestroyAPIView):
     queryset = Account.objects.all()
-    serializer_class = AccountUpdateSerializer
+    serializer_class = AccountsUpdateSerializer
     permission_classes = (IsAdminUserForAccount,)
 
     def destroy(self, request, *args, **kwargs):
@@ -118,7 +118,7 @@ class AccountDestroyView(generics.DestroyAPIView):
         instance.is_active = False
 
 
-class ChangePasswordView(generics.UpdateAPIView):
+class ChangePasswordViews(generics.UpdateAPIView):
     serializer_class = ChangePasswordSerializer
     permission_classes = (IsOwnUserOrReadOnly, IsAuthenticated)
 
