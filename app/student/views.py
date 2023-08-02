@@ -4,6 +4,7 @@ from app.account.permissons import IsAuthenticated, IsAdminUserForAccount
 from .models import Student
 from .serializers import StudentPaymentSerializer
 
+
 class StudentPaymentListAPIView(generics.ListAPIView):
     queryset = Student.objects.filter(is_active=True).order_by('-id')
     serializer_class = StudentPaymentSerializer
